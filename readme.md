@@ -17,6 +17,10 @@ opkg install openssh-server openssh-client openssh-sftp-server openssh-sftp-clie
 wget https://downloads.openwrt.org/releases/21.02.5/targets/mediatek/mt7622/packages/libatomic1_8.4.0-3_aarch64_cortex-a53.ipk
 opkg install libatomic1_8.4.0-3_aarch64_cortex-a53.ipk
 opkg install bind-dig haproxy
+
+opkg remove dropbear
+rm /bin/ash 
+ln -s /bin/ash /bin/bash
 ```
 3. set wg
 ```
