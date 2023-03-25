@@ -21,13 +21,13 @@ opkg install bind-dig haproxy
 3. set wg
 ```
 #!/bin/sh
-ip link add vpn-client type wireguard
-ip link set mtu 1420 up dev vpn-client
-ip -4 address add 10.0.1.2 dev vpn-client
-ip route add 10.0.1.0/24 dev vpn-client
-/opt/wireguard/wg setconf vpn-client /opt/wireguard/vpn-client.conf
-iptables -t nat -A POSTROUTING -o vpn-client -j MASQUERADE
-iptables -I FORWARD -i vpn-client -j ACCEPT
-iptables -I FORWARD -o vpn-client -j ACCEPT
+ip link add wg-client type wireguard
+ip link set mtu 1420 up dev wg-client
+ip -4 address add 10.0.1.2 dev wg-client
+ip route add 10.0.1.0/24 dev wg-client
+wg setconf wg-client client.conf
+iptables -t nat -A POSTROUTING -o wg-client -j MASQUERADE
+iptables -I FORWARD -i wg-client -j ACCEPT
+iptables -I FORWARD -o wg-client -j ACCEPT
 
 ```
