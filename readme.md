@@ -36,5 +36,5 @@ iptables -I FORWARD -o wg-client -j ACCEPT
 
 ```
 4. bug
-https://github.com/gl-inet/gl-feeds/issues/5
-https://github.com/gl-inet/gl-infra-builder/issues/64
+. https://github.com/gl-inet/gl-feeds/issues/5
+. https://github.com/gl-inet/gl-infra-builder/issues/64
