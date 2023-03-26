@@ -20,7 +20,8 @@ opkg install bind-dig haproxy
 
 opkg remove dropbear
 rm /bin/ash 
-ln -s /bin/ash /bin/bash
+ln -s /bin/bash /bin/ash
+/etc/init.d/sshd restart
 ```
 3. set wg
 ```
