@@ -13,11 +13,7 @@ opkg update
 ```
 2. install openssh dig bash etc
 ```
-opkg install openssh-server openssh-client openssh-sftp-server openssh-sftp-client bash
-wget https://downloads.openwrt.org/releases/21.02.5/targets/mediatek/mt7622/packages/libatomic1_8.4.0-3_aarch64_cortex-a53.ipk
-opkg install libatomic1_8.4.0-3_aarch64_cortex-a53.ipk
-opkg install bind-dig haproxy
-
+opkg install openssh-server openssh-client openssh-sftp-server openssh-sftp-client bash bind-dig haproxy
 opkg remove dropbear
 rm /bin/ash 
 ln -s /bin/bash /bin/ash
@@ -36,6 +32,11 @@ iptables -I FORWARD -i wg-client -j ACCEPT
 iptables -I FORWARD -o wg-client -j ACCEPT
 
 ```
-4. bug
+4. fullconenat 
+```
+iptables -t nat -I PREROUTING -i eth0 -p udp  -j FULLCONENAT
+iptables -t nat -I POSTROUTING -o eth0  -p udp  -j FULLCONENAT
+```
+5. bug
 + https://github.com/gl-inet/gl-feeds/issues/5
 + https://github.com/gl-inet/gl-infra-builder/issues/64
