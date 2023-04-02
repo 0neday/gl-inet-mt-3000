@@ -18,6 +18,11 @@ opkg remove dropbear
 rm /bin/ash 
 ln -s /bin/bash /bin/ash
 /etc/init.d/sshd restart
+
+# remove unused ko
+cd /etc/modules.d/
+rm usb-serial* usb-net-rtl8150 usb-net-rtl8152 ipt-offload
+
 ```
 3. set wg
 ```
