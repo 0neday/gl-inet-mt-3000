@@ -42,7 +42,14 @@ iptables -I FORWARD -o wg-client -j ACCEPT
 iptables -t nat -I PREROUTING -i eth0 -p udp  -j FULLCONENAT
 iptables -t nat -I POSTROUTING -o eth0  -p udp  -j FULLCONENAT
 ```
-5. bug
+5. fix some chinese phone hijack dns query to 114 etc
+```
+# fix dns
+iptables -t nat -N DNS
+iptables -t nat -A DNS -p udp  -j REDIRECT --to-ports 53
+iptables -t nat -I PREROUTING -p udp --dport 53 -j DNS
+```
+6. bug
 + https://github.com/gl-inet/gl-feeds/issues/5
 + https://github.com/gl-inet/gl-infra-builder/issues/64
 + https://github.com/hanwckf/immortalwrt-mt798x/issues/69#issuecomment-1497133786
