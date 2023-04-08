@@ -45,3 +45,4 @@ iptables -t nat -I POSTROUTING -o eth0  -p udp  -j FULLCONENAT
 5. bug
 + https://github.com/gl-inet/gl-feeds/issues/5
 + https://github.com/gl-inet/gl-infra-builder/issues/64
++ https://github.com/hanwckf/immortalwrt-mt798x/issues/69#issuecomment-1497133786
